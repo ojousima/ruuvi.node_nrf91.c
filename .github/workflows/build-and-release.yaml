@@ -75,8 +75,8 @@ jobs:
         run: |
           export PATH=~/.local/bin:/usr/share/rust/.cargo/bin:$PATH
           cd ${GITHUB_WORKSPACE}
-          git clone https://github.com/${GITHUB_REPOSITORY} firmware
-          cd firmware
+          git clone https://github.com/${GITHUB_REPOSITORY} ruuvi.node_nrf91.c
+          cd ruuvi.node_nrf91.c
           git reset --hard ${GITHUB_SHA}
           west init -l
           west update
@@ -90,35 +90,35 @@ jobs:
       - name: Determine next release version
         run: |
           npm ci
-          export NEXT_VERSION=`node ${GITHUB_WORKSPACE}/firmware/.github/workflows/get-next-version.js`
-          echo "CONFIG_CAT_TRACKER_APP_VERSION=\"$NEXT_VERSION\"" >> ${GITHUB_WORKSPACE}/firmware/prj.conf
+          export NEXT_VERSION=`node ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/.github/workflows/get-next-version.js`
+          echo "CONFIG_CAT_TRACKER_APP_VERSION=\"$NEXT_VERSION\"" >> ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/prj.conf
 
       - name: Build
         run: |
           export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
           export GNUARMEMB_TOOLCHAIN_PATH=${GITHUB_WORKSPACE}/gcc-arm-none-eabi-7-2018-q2-update
           export PATH=~/.local/bin:/usr/share/rust/.cargo/bin:$PATH
-          cd ${GITHUB_WORKSPACE}/firmware
+          cd ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c
           mkdir -p -v ${GITHUB_WORKSPACE}/.cache
           export XDG_CACHE_HOME=${GITHUB_WORKSPACE}/.cache
           # Print config
           cat prj.conf
           # NB-IoT
           west build -p auto -b nrf9160_pca20035ns
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns.hex
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns-app_update.bin
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns.hex
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns-app_update.bin
           west build -p auto -b nrf9160_pca10090ns
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns.hex
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns-app_update.bin
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns.hex
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns-app_update.bin
           # LTE-m
-          sed -i s/CONFIG_LTE_NETWORK_MODE_NBIOT_GPS=y/CONFIG_LTE_NETWORK_MODE_LTE_M_GPS=y/ ${GITHUB_WORKSPACE}/firmware/prj.conf
-          sed -i s/CONFIG_LTE_LEGACY_PCO_MODE=y/CONFIG_LTE_LEGACY_PCO_MODE=n/ ${GITHUB_WORKSPACE}/firmware/prj.conf
+          sed -i s/CONFIG_LTE_NETWORK_MODE_NBIOT_GPS=y/CONFIG_LTE_NETWORK_MODE_LTE_M_GPS=y/ ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/prj.conf
+          sed -i s/CONFIG_LTE_LEGACY_PCO_MODE=y/CONFIG_LTE_LEGACY_PCO_MODE=n/ ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/prj.conf
           west build -p auto -b nrf9160_pca20035ns
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns-ltem.hex
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns-ltem-app_update.bin
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns-ltem.hex
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca20035ns-ltem-app_update.bin
           west build -p auto -b nrf9160_pca10090ns
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns-ltem.hex
-          mv -v ${GITHUB_WORKSPACE}/firmware/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns-ltem-app_update.bin
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/merged.hex ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns-ltem.hex
+          mv -v ${GITHUB_WORKSPACE}/ruuvi.node_nrf91.c/build/zephyr/app_update.bin ${GITHUB_WORKSPACE}/cat-tracker-nrf9160_pca10090ns-ltem-app_update.bin
 
       - name: Semantic release
         continue-on-error: true
