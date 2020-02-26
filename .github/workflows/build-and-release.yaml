@@ -12,13 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Preserve PIP cache
-        id: cache-pip
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.OS }}-pip
-
       - name: Cache GCC ARM Embed binary
         id: cache-gcc-arm
         uses: actions/cache@v1
