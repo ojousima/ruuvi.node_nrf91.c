@@ -35,7 +35,7 @@
   },
   "release": {
     "branches": [
-      "saga"
+      "master"
     ],
     "remoteTags": true,
     "plugins": [
