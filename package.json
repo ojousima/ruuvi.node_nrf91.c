@@ -1,23 +1,23 @@
 {
-  "name": "@bifravst/firmware",
+  "name": "@ruuvi/ruuvi.node_nrf91.c",
   "version": "0.0.0-development",
-  "description": "Cat Tracker application built using nRF Connect SDK",
+  "description": "Ruuvi Node application built using nRF Connect SDK",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bifravst/firmware.git"
+    "url": "https://github.com/ruuvi/ruuvi.node_nrf91.c.git"
   },
   "bugs": {
-    "url": "https://github.com/bifravst/firmware/issues"
+    "url": "https://github.com/ruuvi/ruuvi.node_nrf91.c/issues"
   },
-  "homepage": "https://bifravst.github.io/",
+  "homepage": "https://ruuvi.github.io/",
   "keywords": [
     "Cloud",
     "IoT",
-    "bifravst",
+    "ruuvi",
     "AssetTracker",
     "NordicSemiconductor"
   ],
-  "author": "Nordic Semiconductor ASA | nordicsemi.no",
+  "author": "Nordic Semiconductor ASA | nordicsemi.no, Ruuvi Innovations Ltd | ruuvi.com",
   "license": "BSD-5-Clause-Nordic",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -46,43 +46,23 @@
         {
           "assets": [
             {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca20035ns.hex",
-              "name": "cat-tracker-PCA20035-Thingy52-${nextRelease.gitTag}.hex",
-              "label": "Pre-build HEX file for PCA20035 / Thingy:91 (${nextRelease.gitTag}) NB-IoT"
-            },
-            {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca20035ns-app_update.bin",
-              "name": "cat-tracker-PCA20035-Thingy52-${nextRelease.gitTag}-app_update.bin",
-              "label": "App update file for PCA20035 / Thingy:91 (${nextRelease.gitTag}) NB-IoT"
-            },
-            {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca10090ns.hex",
-              "name": "cat-tracker-PCA10090-nRF9160DK-${nextRelease.gitTag}.hex",
+              "path": "/home/runner/work/ruuvi.node_nrf91.c/ruuvi.node_nrf91.c/ruuvi-node-nrf9160_pca10090ns.hex",
+              "name": "ruuvi-node-PCA10090-nRF9160DK-${nextRelease.gitTag}.hex",
               "label": "Pre-build HEX file for PCA10090 / nRF9160 DK (${nextRelease.gitTag}) NB-IoT"
             },
             {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca10090ns-app_update.bin",
-              "name": "cat-tracker-PCA10090-nRF9160DK-${nextRelease.gitTag}-app_update.bin",
+              "path": "/home/runner/work/ruuvi.node_nrf91.c/ruuvi.node_nrf91.c/ruuvi-node-nrf9160_pca10090ns-app_update.bin",
+              "name": "ruuvi-node-PCA10090-nRF9160DK-${nextRelease.gitTag}-app_update.bin",
               "label": "App update file for PCA10090 / nRF9160 DK (${nextRelease.gitTag}) NB-IoT"
             },
             {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca20035ns-ltem.hex",
-              "name": "cat-tracker-PCA20035-Thingy52-${nextRelease.gitTag}-ltem.hex",
-              "label": "Pre-build HEX file for PCA20035 / Thingy:91 (${nextRelease.gitTag}) LTE-m"
-            },
-            {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca20035ns-ltem-app_update.bin",
-              "name": "cat-tracker-PCA20035-Thingy52-${nextRelease.gitTag}-ltem-app_update.bin",
-              "label": "App update file for PCA20035 / Thingy:91 (${nextRelease.gitTag}) LTE-m"
-            },
-            {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca10090ns-ltem.hex",
-              "name": "cat-tracker-PCA10090-nRF9160DK-${nextRelease.gitTag}-ltem.hex",
+              "path": "/home/runner/work/ruuvi.node_nrf91.c/ruuvi.node_nrf91.c/ruuvi-node-nrf9160_pca10090ns-ltem.hex",
+              "name": "ruuvi-node-PCA10090-nRF9160DK-${nextRelease.gitTag}-ltem.hex",
               "label": "Pre-build HEX file for PCA10090 / nRF9160 DK (${nextRelease.gitTag}) LTE-m"
             },
             {
-              "path": "/home/runner/work/firmware/firmware/cat-tracker-nrf9160_pca10090ns-ltem-app_update.bin",
-              "name": "cat-tracker-PCA10090-nRF9160DK-${nextRelease.gitTag}-ltem-app_update.bin",
+              "path": "/home/runner/work/ruuvi.node_nrf91.c/ruuvi.node_nrf91.c/ruuvi-node-nrf9160_pca10090ns-ltem-app_update.bin",
+              "name": "ruuvi-node-PCA10090-nRF9160DK-${nextRelease.gitTag}-ltem-app_update.bin",
               "label": "App update file for PCA10090 / nRF9160 DK (${nextRelease.gitTag}) LTE-m"
             }
           ]
